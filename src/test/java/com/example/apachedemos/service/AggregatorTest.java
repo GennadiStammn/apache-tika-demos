@@ -14,8 +14,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class AggregatorTest {
 
@@ -42,6 +41,6 @@ class AggregatorTest {
         var contentType = (String) images.get(0).get("contentType");
 
         var extractedText = ocrTextExtrcationService.extractText(contentType, image.getBytes());
-        assertTrue(!extractedText.isBlank());
+        assertFalse(extractedText.isBlank());
     }
 }
