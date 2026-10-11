@@ -1,7 +1,8 @@
-package com.example.apachedemos;
+package com.example.apachedemos.controller;
 
 import java.util.Map;
 
+import com.example.apachedemos.service.PdfExtractionService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;

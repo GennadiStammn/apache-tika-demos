@@ -1,4 +1,4 @@
-package com.example.apachedemos;
+package com.example.apachedemos.service;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.apache.tika.exception.TikaException;
+import org.apache.tika.io.TikaInputStream;
 import org.apache.tika.metadata.Metadata;
 import org.apache.tika.parser.ParseContext;
 import org.apache.tika.parser.pdf.PDFParser;
@@ -33,7 +34,7 @@ public class PdfExtractionService {
         Metadata metadata = new Metadata();
         BodyContentHandler handler = new BodyContentHandler(-1);
         try (InputStream in = file.getInputStream()) {
-            new PDFParser().parse(in, handler, metadata, new ParseContext());
+            new PDFParser().parse(TikaInputStream.get(in), handler, metadata, new ParseContext());
         }
 
         Map<String, String> meta = new LinkedHashMap<>();
